@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { connect } from "react-redux";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./components/Home";
@@ -7,7 +7,7 @@ import Login from "./components/Login";
 function App(props) {
   const { isAuthenticated, isVerifying } = props;
   return (
-    <Switch>
+    <Routes>
       <ProtectedRoute
         exact
         path="/"
@@ -16,7 +16,7 @@ function App(props) {
         isVerifying={isVerifying}
       />
       <Route path="/login" component={Login} />
-    </Switch>
+    </Routes>
   );
 }
 function mapStateToProps(state) {
